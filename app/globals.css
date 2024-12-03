@@ -19,3 +19,22 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes fade {
+  0% { opacity: 0; }
+  33% { opacity: 1; }
+  66% { opacity: 0; }
+}
+
+.animate-fade-1 {
+  animation: fade 15s infinite;
+}
+
+.animate-fade-2 {
+  animation: fade 15s infinite 5s;
+}
+
+.animate-fade-3 {
+  animation: fade 15s infinite 10s;
+}
+
