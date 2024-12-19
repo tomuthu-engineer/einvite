@@ -54,7 +54,7 @@ const Home = () => {
       {/* Right Container */}
       <div className="flex-1 flex flex-col justify-center items-center text-center p-8 bg-white relative">
         {/* Top Image */}
-        <div className="absolute top-0 w-full">
+        <div className="absolute top-0 w-full hidden md:block">
           <Image
             src="/tora.png"
             alt="Toranam Decoration"
