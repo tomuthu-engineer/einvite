@@ -43,7 +43,7 @@ const Home = () => {
       {/* Left Container */}
       <div className="flex-1 flex justify-center items-center bg-gradient-to-br from-teal-500 via-blue-400 to-green-300">
         <Image
-          src="/wedding-couple.svg"
+          src="/event1.png"
           alt="Wedding Couple SVG"
           width={500}
           height={500}
@@ -56,7 +56,7 @@ const Home = () => {
         {/* Top Image */}
         <div className="absolute top-0 w-full">
           <Image
-            src="/toranam.png"
+            src="/tora.png"
             alt="Toranam Decoration"
             width={1000}
             height={200}
