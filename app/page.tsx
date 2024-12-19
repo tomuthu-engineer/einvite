@@ -5,10 +5,10 @@ import Image from "next/image";
 
 const Home = () => {
   const addEventToCalendar = () => {
-    const eventTitle = "Housewarming Party";
+    const eventTitle = "Wedding Celebration";
     const startDate = "20241220T180000Z"; // Example: Dec 20, 2024, 6:00 PM UTC
     const endDate = "20241220T210000Z"; // Example: Dec 20, 2024, 9:00 PM UTC
-    const details = "Join us for our housewarming celebration!";
+    const details = "Join us for our wedding celebration!";
     const location = "Bengaluru, India";
 
     const calendarURL = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
@@ -21,8 +21,8 @@ const Home = () => {
   };
 
   const shareInvitation = () => {
-    const title = "You're Invited to Our Housewarming!";
-    const text = `Join us for a housewarming celebration in Bengaluru. Check out the event details and location here: ${window.location.href}`;
+    const title = "You're Invited to Our Wedding!";
+    const text = `Join us for our wedding celebration in Bengaluru. Check out the event details and location here: ${window.location.href}`;
     const location = "Bengaluru";
 
     if (navigator.share) {
@@ -39,42 +39,77 @@ const Home = () => {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      {/* Main Card */}
-      <div className="relative flex flex-col justify-center items-center h-screen text-center text-white px-4 sm:px-8">
-        <div className="bg-gradient-to-br from-purple-600 via-pink-500 to-red-500 p-4 sm:p-8 rounded-xl shadow-2xl backdrop-blur-lg bg-opacity-90 max-w-md w-full">
+    <div className="flex flex-col md:flex-row min-h-screen overflow-hidden bg-gray-100">
+      {/* Left Container */}
+      <div className="flex-1 flex justify-center items-center bg-gradient-to-br from-teal-500 via-blue-400 to-green-300">
+        <Image
+          src="/event1.png"
+          alt="Wedding Couple SVG"
+          width={500}
+          height={500}
+          className="rounded-lg shadow-xl"
+        />
+      </div>
+
+      {/* Right Container */}
+      <div className="flex-1 flex flex-col justify-center items-center text-center p-8 bg-gray-50 relative">
+        {/* Top Image */}
+        <div className="absolute top-0 w-full">
           <Image
-            src="/invitation.svg"
-            alt="Housewarming SVG"
-            width={400}
-            height={300}
-            className="w-full h-auto rounded-lg shadow-lg"
+            src="/tora.png"
+            alt="Toranam Decoration"
+            width={1000}
+            height={200}
+            className="w-full h-auto"
           />
         </div>
 
+        {/* Top Text */}
+        <h2 className="text-2xl md:text-4xl font-extrabold text-gray-700 font-serif mt-24">
+          You're cordially invited to the
+        </h2>
+
+        {/* Horizontal Line */}
+        <div className="w-24 h-1 bg-teal-500 mt-4 mb-2"></div>
+
+        {/* Event Name */}
+        <h1 className="text-3xl md:text-5xl font-bold text-gray-900 font-cursive mb-2">
+          Our Wedding
+        </h1>
+
+        {/* Horizontal Line */}
+        <div className="w-24 h-1 bg-teal-500 mt-2 mb-4"></div>
+
+        {/* Event Details */}
+        <div className="text-gray-600 font-light text-lg md:text-xl mb-6">
+          <p>December 20, 2024</p>
+          <p>6:00 PM - 9:00 PM</p>
+          <p>Bengaluru, India</p>
+        </div>
+
         {/* Buttons */}
-        <div className="mt-6 sm:mt-8 flex justify-center gap-x-4 sm:gap-x-8 w-full">
+        <div className="flex flex-wrap justify-center gap-4">
           {/* Save Date Button */}
           <button
             onClick={addEventToCalendar}
-            className="flex items-center space-x-2 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all text-sm sm:text-lg w-auto whitespace-nowrap"
-          >
+            className="relative flex items-center justify-center bg-teal-500 text-white px-6 py-3 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition-all text-sm md:text-lg">
             <Image
               src="/calendar.png"
               alt="Google Calendar Icon"
-              width={20}
-              height={20}
+              width={24}
+              height={24}
             />
-            <span>Save Date</span>
+            <span className="ml-2 font-semibold">Save Date</span>
+            <div className="absolute inset-0 rounded-full bg-white opacity-10"></div>
           </button>
 
           {/* Share Button */}
           <button
             onClick={shareInvitation}
-            className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all text-sm sm:text-lg w-auto whitespace-nowrap"
-          >
-            <Image src="/share.png" alt="Share Icon" width={20} height={20} />
-            <span>Share</span>
+            className="relative flex items-center justify-center bg-purple-500 text-white px-6 py-3 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition-all text-sm md:text-lg">
+            <Image src="/share.png" alt="Share Icon" width={24} height={24} />
+            <span className="ml-2 font-semibold">Share</span>
+            <div className="absolute inset-0 rounded-full bg-white opacity-10"></div>
           </button>
 
           {/* Location Button */}
@@ -82,10 +117,10 @@ const Home = () => {
             onClick={() =>
               window.open("https://maps.google.com/?q=Bengaluru", "_blank")
             }
-            className="flex items-center space-x-2 bg-gradient-to-r from-green-500 via-yellow-600 to-orange-700 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all text-sm sm:text-lg w-auto whitespace-nowrap"
-          >
-            <Image src="/maps.png" alt="Map Icon" width={20} height={20} />
-            <span>Location</span>
+            className="relative flex items-center justify-center bg-yellow-500 text-white px-6 py-3 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition-all text-sm md:text-lg">
+            <Image src="/maps.png" alt="Map Icon" width={24} height={24} />
+            <span className="ml-2 font-semibold">Location</span>
+            <div className="absolute inset-0 rounded-full bg-white opacity-10"></div>
           </button>
         </div>
       </div>
